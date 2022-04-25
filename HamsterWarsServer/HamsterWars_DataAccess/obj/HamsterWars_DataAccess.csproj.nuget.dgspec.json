@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lobson\\Desktop\\Hamster\\HamsterWarsServer\\HamsterWars_DataAccess\\HamsterWars_DataAccess.csproj": {}
+    "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars_DataAccess\\HamsterWars_DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lobson\\Desktop\\Hamster\\HamsterWarsServer\\HamsterWars_DataAccess\\HamsterWars_DataAccess.csproj": {
+    "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars_DataAccess\\HamsterWars_DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lobson\\Desktop\\Hamster\\HamsterWarsServer\\HamsterWars_DataAccess\\HamsterWars_DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars_DataAccess\\HamsterWars_DataAccess.csproj",
         "projectName": "HamsterWars_DataAccess",
-        "projectPath": "C:\\Users\\Lobson\\Desktop\\Hamster\\HamsterWarsServer\\HamsterWars_DataAccess\\HamsterWars_DataAccess.csproj",
+        "projectPath": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars_DataAccess\\HamsterWars_DataAccess.csproj",
         "packagesPath": "C:\\Users\\Lobson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lobson\\Desktop\\Hamster\\HamsterWarsServer\\HamsterWars_DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars_DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

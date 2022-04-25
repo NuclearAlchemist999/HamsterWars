@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Qsfb/DxsoG7O5FJB+yEl12vXBhdeQePm5LJ6hL0NXUIoZ4kIDeSV7XkaLY1f5htJsgy8xo1/OFPNuGAx2KgdYA==",
+  "dgSpecHash": "F8uh7Ug0WYisXNFLlBbT0Wyb29UJF8EBsIyzdnMDg9bph+IE/phjli++kWgwIoXKW6VulB+mayKh/gNgj2i7Pw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lobson\\Desktop\\Hamster\\HamsterWarsServer\\HamsterWars\\HamsterWars.csproj",
+  "projectFilePath": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\HamsterWars.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lobson\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lobson\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.4\\microsoft.aspnetcore.authorization.6.0.4.nupkg.sha512",

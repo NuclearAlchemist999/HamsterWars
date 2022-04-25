@@ -8,57 +8,57 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HamsterWars
 build_property.RootNamespace = HamsterWars
-build_property.ProjectDir = C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars\
+build_property.ProjectDir = C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars
+build_property.MSBuildProjectDirectory = C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/App.razor]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/Pages/Hamsteria.razor]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/Pages/Hamsteria.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFtc3RlcmlhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/Pages/Index.razor]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/Shared/SurveyPrompt.razor]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/_Imports.razor]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/Pages/Battle.razor]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/Pages/Battle.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmF0dGxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-gntiqfs9id
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/Pages/Hamsters.razor]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/Pages/Hamsters.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGFtc3RlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-eisjhi7mvi
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/Shared/MainLayout.razor]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ulp1dc3nth
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/Shared/NavMenu.razor]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-sxal4ay1dm
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/Pages/Error.cshtml]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/Pages/_Host.cshtml]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lobson/Desktop/Hamster/HamsterWarsServer/HamsterWars/Pages/_Layout.cshtml]
+[C:/Users/Lobson/Desktop/GitProjekt/HamsterWars/HamsterWarsServer/HamsterWars/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
