@@ -5,9 +5,9 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamsterWars", "HamsterWars\HamsterWars.csproj", "{EBD5F93B-E3AE-4E61-A3AF-3B77BFDD9443}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamsterWars_DataAccess", "HamsterWars_DataAccess\HamsterWars_DataAccess.csproj", "{BE2AF249-E510-4130-BDFF-743B7B4A039E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamsterWars_DataAccess", "HamsterWars_DataAccess\HamsterWars_DataAccess.csproj", "{BE2AF249-E510-4130-BDFF-743B7B4A039E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamsterWars_Repositories", "HamsterWars_Repositories\HamsterWars_Repositories.csproj", "{488E4BFB-3A88-4837-B685-DD0A468F29C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamsterWars_Repositories", "HamsterWars_Repositories\HamsterWars_Repositories.csproj", "{488E4BFB-3A88-4837-B685-DD0A468F29C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,9 +1,29 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<h2>Welcome to Hamster Wars</h2>
 
-Welcome to your new app.
+<p>Click on the hamster that you find cutest. In the gallery you can see all hamsters. Click
+on a hamster picture to find more information about each hamster. You can also add your own hamster in the 
+gallery.
+</p>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<a href="" @onclick="GoToBattle" @onclick:preventDefault>Go to battle</a>
+<a href="" @onclick="GoToGallery" @onclick:preventDefault>Go to gallery</a>
+
+
+@code {
+    void GoToBattle()
+    {
+        NavigationManager.NavigateTo("battle");
+    }
+
+    void GoToGallery()
+    {
+        NavigationManager.NavigateTo("hamsters");
+    }
+}
+
+

@@ -27,9 +27,13 @@
 @foreach (var hamster in BattleService.Hamsters)
 {
     
-     
-     <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img" @onclick="(() => UpdatePoints(hamster.Id))">
-    
+    <div>
+        <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img" @onclick="(() => UpdatePoints(hamster.Id))">
+        <p>Name: @hamster.Name</p>
+        <p>Age: @hamster.Age</p>
+        <p>Favourite food: @hamster.FavFood</p>
+        <p>Favourite thing: @hamster.FavThing</p>
+    </div>
       
 }
 
