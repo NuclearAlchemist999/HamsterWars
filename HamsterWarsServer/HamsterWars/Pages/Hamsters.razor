@@ -4,38 +4,9 @@
 
 
 <h3>Hamsters</h3>
+<button class="btn btn-primary" @onclick="AddNewHamster">Add hamster</button>
+<br /> <br /> 
 
-@*<table class="table">
-    <thead>
-      <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Favourite food</th>
-            <th>Favourite thing</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var hamster in HamsterService.Hamsters )
-        {
-            <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img">
-            <tr>
-                <th></th>
-                <td>@hamster.Name</td>
-                <td>@hamster.Age</td>
-                <td>@hamster.FavFood</td>
-                <td>@hamster.FavThing</td>
-                <td>
-                    <button class="btn btn-primary" @onclick="(() => ShowHamster(hamster.Id))">
-                    <i class="oi oi-pencil"></i>
-                    </button>
-                </td>
-            </tr>
-            
-        }
-    </tbody>
-
-</table>*@
 @foreach (var hamster in HamsterService.Hamsters)
 {
     <div>
@@ -47,7 +18,7 @@
     </div>
 }
 
-<button class="btn btn-primary" @onclick="AddNewHamster">Add hamster</button>
+
 
 @code {
     protected override async Task OnInitializedAsync()

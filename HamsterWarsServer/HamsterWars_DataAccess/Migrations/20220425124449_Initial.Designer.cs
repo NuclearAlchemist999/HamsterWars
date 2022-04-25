@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HamsterWars_DataAccess.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220417180353_Initial")]
+    [Migration("20220425124449_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,9 +48,11 @@ namespace HamsterWars_DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FavFood")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FavThing")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Games")
@@ -63,6 +65,7 @@ namespace HamsterWars_DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Wins")
@@ -86,6 +89,10 @@ namespace HamsterWars_DataAccess.Migrations
 
                     b.Property<int>("HamsterId")
                         .HasColumnType("int");
+
+                    b.Property<string>("WinStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

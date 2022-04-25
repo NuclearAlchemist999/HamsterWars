@@ -95,7 +95,7 @@ else
         {
             string[] vaildTypes = { "png", "jpg", "jpeg" };
             string fileExtension = fileName.Split('.').Last();
-            return vaildTypes.Contains(fileExtension);
+            return vaildTypes.Contains(fileExtension.ToLower());
         }
         return false;
     }

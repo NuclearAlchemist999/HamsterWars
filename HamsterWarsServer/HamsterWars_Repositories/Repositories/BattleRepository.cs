@@ -78,12 +78,13 @@ namespace HamsterWars_Repositories.Repositories
 
         }
 
-        public async Task AddFighter(int hamsterId, int gameId)
+        public async Task AddFighter(int hamsterId, int gameId, string winStat)
         {
             var fighter = new HamsterGame
             {
                 HamsterId = hamsterId,
-                GameId = gameId
+                GameId = gameId,
+                WinStatus = winStat
             };
 
             _context.Add(fighter);
@@ -103,8 +104,8 @@ namespace HamsterWars_Repositories.Repositories
                                   Losses = h.Losses,
                                   Games = h.Games,
                                   HamsterId = h.Id,
-                                  ImgName = h.ImgName
-
+                                  ImgName = h.ImgName,
+                                  WinStatus = hg.WinStatus
 
                               }).ToListAsync();
 

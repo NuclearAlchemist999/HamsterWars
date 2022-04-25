@@ -13,5 +13,6 @@ namespace HamsterWars_DataAccess.Models
         public int GameId { get; set; }
         public Hamster? Hamster { get; set; }
         public Game? Game { get; set; }
+        public string WinStatus { get; set; } = string.Empty;
     }
 }

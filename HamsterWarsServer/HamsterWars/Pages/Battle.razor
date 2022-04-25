@@ -4,22 +4,19 @@
 @inject NavigationManager NavigationManager
 
 
-
-
 @if (Id != null)
 {
     <h2>Result:</h2>
     @foreach (var hamster in BattleService.Fighters)
     {
         <div>
+            <h3>@hamster.WinStatus</h3>
             <img src="@hamster.ImgName" alt="@hamster.HamsterName" class="hamster-img">
             <p>@hamster.HamsterName</p>
+            <p>Games: @hamster.Games</p>
             <p>Wins: @hamster.Wins</p>
             <p>Losses: @hamster.Losses</p>
         </div>
-        
-        
-    
     }
 }
 
@@ -63,16 +60,19 @@
 
     async Task UpdatePoints(int id)
     {
+        string winStat = "";
         int gameId = await BattleService.AddGame();
         var loser = BattleService.Hamsters.FirstOrDefault(h => h.Id != id);
 
         if (loser != null)
         {
+            winStat = "Loser";
             await BattleService.UpdateLosses(loser.Id);
-            await BattleService.AddFighter(loser.Id, gameId);
+            await BattleService.AddFighter(loser.Id, gameId, winStat);
         }
+        winStat = "Winner";
         await BattleService.UpdateWins(id);
-        await BattleService.AddFighter(id, gameId);
+        await BattleService.AddFighter(id, gameId, winStat);
 
         NavigationManager.NavigateTo($"/battle/{gameId}", true);
         

@@ -46,9 +46,11 @@ namespace HamsterWars_DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FavFood")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FavThing")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Games")
@@ -61,6 +63,7 @@ namespace HamsterWars_DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Wins")
@@ -84,6 +87,10 @@ namespace HamsterWars_DataAccess.Migrations
 
                     b.Property<int>("HamsterId")
                         .HasColumnType("int");
+
+                    b.Property<string>("WinStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
