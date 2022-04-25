@@ -1,0 +1,164 @@
+﻿@page "/hamster"
+@page "/hamster/{id:int}"
+@inject IHamsterRepository HamsterService
+@inject NavigationManager NavigationManager
+
+
+@if (Id == null)
+{
+    <h3>Add a new hamster</h3>
+}
+else
+{
+    <h3>Edit "@hamster.Name"</h3>
+}
+
+<EditForm Model="@hamster" OnValidSubmit="@HandleSubmit">
+    <DataAnnotationsValidator />
+    <div>
+        <label for="name">Name</label>
+        <InputText id="name" @bind-Value="hamster.Name" class="form-control"></InputText>
+        <ValidationMessage For="@(()=> hamster.Name)" />
+    </div>
+    <div>
+        <label for="age">Age</label>
+        <InputNumber id="age" @bind-Value="hamster.Age" class="form-control"></InputNumber>
+        <ValidationMessage For="@(()=> hamster.Age)" />
+    </div>
+    <div>
+        <label for="fav-food">Favourite food</label>
+        <InputText id="fav-food" @bind-Value="hamster.FavFood" class="form-control"></InputText>
+        <ValidationMessage For="@(()=> hamster.FavFood)" />
+    </div>
+    <div>
+        <label for="fav-thing">Favourite thing</label>
+        <InputText id="fav-thing" @bind-Value="hamster.FavThing" class="form-control"></InputText>
+        <ValidationMessage For="@(()=> hamster.FavThing)" />
+    </div>
+    <div>
+        <label for="image">Image</label>
+          <InputFile OnChange="@LoadFile" @bind-Value="hamster.ImgName" accept=".png,.jpg,.jpeg"></InputFile> 
+    </div>
+    
+    <br />
+    <p style="color: firebrick; font-size: 1.3rem;">@errorMessage</p>
+    <button type="submit" class="btn btn-primary">@btnText</button>
+    @if (Id != null)
+    {
+        <button type="button" class="btn btn-danger" @onclick="DeleteHamster">Delete hamster</button>
+    }
+</EditForm>
+
+
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+    
+    private long maxFileSize = 1024 * 500;
+    private IBrowserFile pendingFile;
+    private string? fileName;
+    private string errorMessage = string.Empty;
+
+
+    string btnText = string.Empty;
+
+    Hamster hamster = new Hamster();
+
+    string ImageURL = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        btnText = Id == null ? "Save hamster" : "Edit hamster";
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id != null)
+        {
+            hamster = await HamsterService.GetOneHamster((int)Id);
+        }
+    }
+
+
+    void LoadFile(InputFileChangeEventArgs e)
+    {
+        pendingFile = e.File;
+        fileName = e.File.Name;
+    }
+
+
+
+    bool CheckValidTypes()
+    {
+        if (fileName != null)
+        {
+            string[] vaildTypes = { "png", "jpg", "jpeg" };
+            string fileExtension = fileName.Split('.').Last();
+            return vaildTypes.Contains(fileExtension);
+        }
+        return false;
+    }
+
+    async Task SaveFile()
+    {
+        try
+        {
+            var storedFileName = string.Format(@"{0}.jpg", Guid.NewGuid());
+
+            var path = $"wwwroot/Content/savedImages/{storedFileName}";
+
+            await using FileStream fs = new(path, FileMode.Create);
+            await pendingFile.OpenReadStream(maxFileSize).CopyToAsync(fs);
+
+            string dbPath = $"/Content/savedImages/{storedFileName}";
+            hamster.ImgName = dbPath;
+            
+        }
+        catch
+        {
+            throw new ArgumentException();
+        }
+
+        
+    }
+
+    async Task HandleSubmit()
+    {
+        if (Id == null)
+        {
+            bool isValid = CheckValidTypes();
+
+            if (fileName == null)
+            {
+                errorMessage = "Please select a file.";
+                return;
+            }
+
+            if (!isValid)
+            {
+                errorMessage = "The file type is not allowed.";
+                return;
+            }
+
+            await SaveFile();
+            
+            await HamsterService.AddHamster(hamster);
+            
+        }
+        else
+        {
+            await SaveFile();
+            await HamsterService.UpdateHamster(hamster, (int)Id);
+        }
+
+        NavigationManager.NavigateTo("hamsters");
+    }
+
+    async Task DeleteHamster()
+    {
+        await HamsterService.DeleteHamster(hamster.Id);
+        NavigationManager.NavigateTo("hamsters");
+    }
+
+}

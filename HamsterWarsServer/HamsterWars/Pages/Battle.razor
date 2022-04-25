@@ -1,0 +1,81 @@
+﻿@page "/battle"
+@page "/battle/{id:int}"
+@inject IBattleRepository BattleService
+@inject NavigationManager NavigationManager
+
+
+
+
+@if (Id != null)
+{
+    <h2>Result:</h2>
+    @foreach (var hamster in BattleService.Fighters)
+    {
+        <div>
+            <img src="@hamster.ImgName" alt="@hamster.HamsterName" class="hamster-img">
+            <p>@hamster.HamsterName</p>
+            <p>Wins: @hamster.Wins</p>
+            <p>Losses: @hamster.Losses</p>
+        </div>
+        
+        
+    
+    }
+}
+
+<h3>Battle</h3>
+@foreach (var hamster in BattleService.Hamsters)
+{
+    
+     
+     <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img" @onclick="(() => UpdatePoints(hamster.Id))">
+    
+      
+}
+
+
+@code {
+
+
+    [Parameter]
+    public int? Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Id != null)
+        {
+            await BattleService.GetFighters((int)Id);
+            await BattleService.GetTwoHamsters();
+
+        }
+        else
+        {
+            await BattleService.GetTwoHamsters();
+        }
+
+    }
+
+
+
+    async Task UpdatePoints(int id)
+    {
+        int gameId = await BattleService.AddGame();
+        var loser = BattleService.Hamsters.FirstOrDefault(h => h.Id != id);
+
+        if (loser != null)
+        {
+            await BattleService.UpdateLosses(loser.Id);
+            await BattleService.AddFighter(loser.Id, gameId);
+        }
+        await BattleService.UpdateWins(id);
+        await BattleService.AddFighter(id, gameId);
+
+        NavigationManager.NavigateTo($"/battle/{gameId}", true);
+        
+
+    }
+
+
+}
+
+    

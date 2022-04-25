@@ -1,0 +1,15 @@
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\bin\Debug\net6.0\HamsterWars_Repositories.deps.json
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\bin\Debug\net6.0\HamsterWars_Repositories.dll
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\bin\Debug\net6.0\HamsterWars_Repositories.pdb
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\bin\Debug\net6.0\HamsterWars_DataAccess.dll
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\bin\Debug\net6.0\HamsterWars_DataAccess.pdb
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\obj\Debug\net6.0\HamsterWars_Repositories.csproj.AssemblyReference.cache
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\obj\Debug\net6.0\HamsterWars_Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\obj\Debug\net6.0\HamsterWars_Repositories.AssemblyInfoInputs.cache
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\obj\Debug\net6.0\HamsterWars_Repositories.AssemblyInfo.cs
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\obj\Debug\net6.0\HamsterWars_Repositories.csproj.CoreCompileInputs.cache
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\obj\Debug\net6.0\HamsterWars_Repositories.csproj.CopyComplete
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\obj\Debug\net6.0\HamsterWars_Repositories.dll
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\obj\Debug\net6.0\refint\HamsterWars_Repositories.dll
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\obj\Debug\net6.0\HamsterWars_Repositories.pdb
+C:\Users\Lobson\Desktop\Hamster\HamsterWarsServer\HamsterWars_Repositories\obj\Debug\net6.0\ref\HamsterWars_Repositories.dll
