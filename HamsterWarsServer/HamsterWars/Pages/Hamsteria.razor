@@ -27,6 +27,7 @@
         <InputText id="fav-thing" @bind-Value="hamster.FavThing" class="form-control"></InputText>
         <ValidationMessage For="@(()=> hamster.FavThing)" />
     </div>
+    <br />
     <div>
         <label for="image">Image</label>
           <InputFile OnChange="@LoadFile" @bind-Value="hamster.ImgName" accept=".png,.jpg,.jpeg"></InputFile> 

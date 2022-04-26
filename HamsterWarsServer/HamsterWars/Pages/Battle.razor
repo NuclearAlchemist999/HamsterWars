@@ -13,8 +13,8 @@
     @foreach (var hamster in BattleService.Fighters)
     {
         <div class="hamster-item">
-            <h3>@hamster.WinStatus</h3>
             <img src="@hamster.ImgName" alt="@hamster.HamsterName" class="hamster-img">
+            <h3>@hamster.WinStatus</h3>
             <p>@hamster.HamsterName</p>
             <p>Games: @hamster.Games</p>
             <p>Wins: @hamster.Wins</p>

@@ -2,16 +2,18 @@
 @inject IHamsterRepository HamsterService
 @inject NavigationManager NavigationManager
 
-    <div>
+    <div class="one-hamster-container">
+        <div class="hamster-item">
         <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img">
         <p>Name: @hamster.Name</p>
         <p>Age: @hamster.Age</p>
         <p>Favourite food: @hamster.FavFood</p>
         <p>Favourite thing: @hamster.FavThing</p>
+        </div>
     </div>
-
-    
-    <button type="button" class="btn btn-danger" @onclick="DeleteHamster">Delete hamster</button>
+    <div class="gallery-top">
+         <button type="button" class="btn btn-danger" @onclick="DeleteHamster">Delete hamster</button>
+    </div>
    
   
 @code {

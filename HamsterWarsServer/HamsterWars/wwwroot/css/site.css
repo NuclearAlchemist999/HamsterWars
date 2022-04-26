@@ -102,7 +102,6 @@ a, .btn-link {
 
 .gallery-top {
     text-align: center;
-
 }
 
 .battle-container {
@@ -114,8 +113,17 @@ a, .btn-link {
     margin: 4rem auto;
 }
 
-.headline {
-    text-align: center;
+.one-hamster-container {
+    display: grid;
+    grid-template-columns: repeat(1, 370px);
+    margin: 4rem auto;
+    justify-content: center;
+    gap: 1rem;
+    margin: 4rem auto;
 }
+
+
+
+
 
 

@@ -130,8 +130,6 @@ C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars\obj
 C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars\obj\Debug\net6.0\HamsterWars.RazorAssemblyInfo.cs
 C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars\obj\Debug\net6.0\scopedcss\Pages\Battle.razor.rz.scp.css
-C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars\obj\Debug\net6.0\scopedcss\Pages\Hamsters.razor.rz.scp.css
 C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
 C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\Lobson\Desktop\GitProjekt\HamsterWars\HamsterWarsServer\HamsterWars\obj\Debug\net6.0\scopedcss\bundle\HamsterWars.styles.css
