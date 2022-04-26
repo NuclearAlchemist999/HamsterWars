@@ -123,6 +123,19 @@ a, .btn-link {
 }
 
 
+.link-style a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    color: rgb(98, 42, 161)
+}
+
+.link-style a:hover {
+    color: rgb(171, 118, 233)
+}
+
+
+
 
 
 

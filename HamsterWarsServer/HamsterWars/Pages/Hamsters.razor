@@ -1,6 +1,8 @@
 ﻿@page "/gallery"
-@inject IHamsterRepository HamsterService
-@inject NavigationManager NavigationManager
+@inject IHamsterRepository _hamster
+@inject NavigationManager _nav
+
+<PageTitle>Gallery</PageTitle>
 
 <div class="gallery-top">
 <h2>Hamsters</h2>
@@ -9,7 +11,7 @@
 
 
 <div class="hamster-container">
-@foreach (var hamster in HamsterService.Hamsters)
+@foreach (var hamster in _hamster.Hamsters)
 {
     <div class="hamster-item">
     <img src="@hamster.ImgName" alt="@hamster.Name" @onclick="(() => HamsterFacts(hamster.Id))">
@@ -22,17 +24,17 @@
 @code {
     protected override async Task OnInitializedAsync()
     {
-        await HamsterService.LoadHamsters();
+        await _hamster.LoadHamsters();
     }
 
     void AddNewHamster()
     {
-        NavigationManager.NavigateTo("hamster");
+        _nav.NavigateTo("hamster");
     }
 
     void HamsterFacts(int id)
     {
-        NavigationManager.NavigateTo($"hamsterinfo/{id}");
+        _nav.NavigateTo($"hamsterinfo/{id}");
     }
 
 }

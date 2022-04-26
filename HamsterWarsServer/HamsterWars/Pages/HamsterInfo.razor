@@ -1,6 +1,8 @@
 ﻿@page "/hamsterinfo/{id:int}"
-@inject IHamsterRepository HamsterService
-@inject NavigationManager NavigationManager
+@inject IHamsterRepository _hamster
+@inject NavigationManager _nav
+
+<PageTitle>Hamster information</PageTitle>
 
     <div class="one-hamster-container">
         <div class="hamster-item">
@@ -18,18 +20,19 @@
   
 @code {
     Hamster hamster = new Hamster();
+
     [Parameter]
     public int Id { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        hamster = await HamsterService.GetOneHamster((int)Id);
+        hamster = await _hamster.GetOneHamster((int)Id);
     }
 
     async Task DeleteHamster()
     {
-        await HamsterService.DeleteHamster(hamster.Id);
-        NavigationManager.NavigateTo("gallery");
+        await _hamster.DeleteHamster(hamster.Id);
+        _nav.NavigateTo("gallery");
     }
 
 

@@ -1,7 +1,7 @@
 ﻿@page "/"
-@inject NavigationManager NavigationManager
+@inject NavigationManager _nav
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Home</PageTitle>
 
 <h2>Welcome to Hamster Wars</h2>
 
@@ -10,19 +10,21 @@ on a hamster picture to find more information about each hamster. You can also a
 gallery.
 </p>
 
+<div class="link-style"> 
 <a href="" @onclick="GoToBattle" @onclick:preventDefault>Go to battle</a>
 <a href="" @onclick="GoToGallery" @onclick:preventDefault>Go to gallery</a>
+</div>
 
 
 @code {
     void GoToBattle()
     {
-        NavigationManager.NavigateTo("battle");
+        _nav.NavigateTo("battle");
     }
 
     void GoToGallery()
     {
-        NavigationManager.NavigateTo("gallery");
+        _nav.NavigateTo("gallery");
     }
 }
 
