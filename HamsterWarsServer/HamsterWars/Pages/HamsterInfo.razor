@@ -1,7 +1,6 @@
 ﻿@page "/hamsterinfo/{id:int}"
 @inject IHamsterRepository HamsterService
-
-
+@inject NavigationManager NavigationManager
 
     <div>
         <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img">
@@ -11,9 +10,10 @@
         <p>Favourite thing: @hamster.FavThing</p>
     </div>
 
-
-           
-
+    
+    <button type="button" class="btn btn-danger" @onclick="DeleteHamster">Delete hamster</button>
+   
+  
 @code {
     Hamster hamster = new Hamster();
     [Parameter]
@@ -21,7 +21,13 @@
 
     protected override async Task OnInitializedAsync()
     {
-        hamster = await HamsterService.GetOneHamster(Id);
+        hamster = await HamsterService.GetOneHamster((int)Id);
+    }
+
+    async Task DeleteHamster()
+    {
+        await HamsterService.DeleteHamster(hamster.Id);
+        NavigationManager.NavigateTo("gallery");
     }
 
 

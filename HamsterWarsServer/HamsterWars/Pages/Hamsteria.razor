@@ -3,15 +3,7 @@
 @inject IHamsterRepository HamsterService
 @inject NavigationManager NavigationManager
 
-
-@if (Id == null)
-{
-    <h3>Add a new hamster</h3>
-}
-else
-{
-    <h3>Edit "@hamster.Name"</h3>
-}
+<h3>Add a new hamster</h3>
 
 <EditForm Model="@hamster" OnValidSubmit="@HandleSubmit">
     <DataAnnotationsValidator />
@@ -42,13 +34,9 @@ else
     
     <br />
     <p style="color: firebrick; font-size: 1.3rem;">@errorMessage</p>
-    <button type="submit" class="btn btn-primary">@btnText</button>
-    @if (Id != null)
-    {
-        <button type="button" class="btn btn-danger" @onclick="DeleteHamster">Delete hamster</button>
-    }
+    <button type="submit" class="btn btn-primary">Save hamster</button>
+    
 </EditForm>
-
 
 
 @code {
@@ -60,34 +48,15 @@ else
     private string? fileName;
     private string errorMessage = string.Empty;
 
-
-    string btnText = string.Empty;
-
     Hamster hamster = new Hamster();
 
     string ImageURL = string.Empty;
-
-    protected override void OnInitialized()
-    {
-        btnText = Id == null ? "Save hamster" : "Edit hamster";
-    }
-
-    protected override async Task OnParametersSetAsync()
-    {
-        if (Id != null)
-        {
-            hamster = await HamsterService.GetOneHamster((int)Id);
-        }
-    }
-
 
     void LoadFile(InputFileChangeEventArgs e)
     {
         pendingFile = e.File;
         fileName = e.File.Name;
     }
-
-
 
     bool CheckValidTypes()
     {
@@ -124,40 +93,25 @@ else
     }
 
     async Task HandleSubmit()
-    {
-        if (Id == null)
+    { 
+        bool isValid = CheckValidTypes();
+
+        if (fileName == null)
         {
-            bool isValid = CheckValidTypes();
-
-            if (fileName == null)
-            {
-                errorMessage = "Please select a file.";
-                return;
-            }
-
-            if (!isValid)
-            {
-                errorMessage = "The file type is not allowed.";
-                return;
-            }
-
-            await SaveFile();
-            
-            await HamsterService.AddHamster(hamster);
-            
-        }
-        else
-        {
-            await SaveFile();
-            await HamsterService.UpdateHamster(hamster, (int)Id);
+            errorMessage = "Please select a file.";
+            return;
         }
 
-        NavigationManager.NavigateTo("gallery");
-    }
+        if (!isValid)
+        {
+            errorMessage = "The file type is not allowed.";
+            return;
+        }
 
-    async Task DeleteHamster()
-    {
-        await HamsterService.DeleteHamster(hamster.Id);
+        await SaveFile();
+            
+        await HamsterService.AddHamster(hamster);
+            
         NavigationManager.NavigateTo("gallery");
     }
 

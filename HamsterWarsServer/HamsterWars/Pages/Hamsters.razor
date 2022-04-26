@@ -2,33 +2,27 @@
 @inject IHamsterRepository HamsterService
 @inject NavigationManager NavigationManager
 
-
-<h3>Hamsters</h3>
+<div class="gallery-top">
+<h2>Hamsters</h2>
 <button class="btn btn-primary" @onclick="AddNewHamster">Add hamster</button>
-<br /> <br /> 
+</div>
 
+
+<div class="hamster-container">
 @foreach (var hamster in HamsterService.Hamsters)
 {
-    <div>
-    <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img" @onclick="(() => HamsterFacts(hamster.Id))">
+    <div class="hamster-item">
+    <img src="@hamster.ImgName" alt="@hamster.Name" @onclick="(() => HamsterFacts(hamster.Id))">
     <p>@hamster.Name</p>
-    <button class="btn btn-primary" @onclick="(() => ShowHamster(hamster.Id))">
-                    <i class="oi oi-pencil"></i>
-    </button>
     </div>
 }
-
+</div>
 
 
 @code {
     protected override async Task OnInitializedAsync()
     {
         await HamsterService.LoadHamsters();
-    }
-
-    void ShowHamster(int id)
-    {
-        NavigationManager.NavigateTo($"hamster/{id}");
     }
 
     void AddNewHamster()

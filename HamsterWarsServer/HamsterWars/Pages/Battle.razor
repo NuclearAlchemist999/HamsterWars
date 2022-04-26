@@ -6,10 +6,13 @@
 
 @if (Id != null)
 {
+    <div class="gallery-top">
     <h2>Result:</h2>
+    </div>
+    <div class="battle-container">
     @foreach (var hamster in BattleService.Fighters)
     {
-        <div>
+        <div class="hamster-item">
             <h3>@hamster.WinStatus</h3>
             <img src="@hamster.ImgName" alt="@hamster.HamsterName" class="hamster-img">
             <p>@hamster.HamsterName</p>
@@ -18,14 +21,18 @@
             <p>Losses: @hamster.Losses</p>
         </div>
     }
+    </div>
 }
 
-<h3>Battle</h3>
+<div class="gallery-top">
+<h2>@headLine</h2>
+</div>
+<div class="battle-container">
 @foreach (var hamster in BattleService.Hamsters)
 {
     
-    <div>
-        <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img" @onclick="(() => UpdatePoints(hamster.Id))">
+    <div class="hamster-item">
+        <img src="@hamster.ImgName" alt="@hamster.Name" @onclick="(() => UpdatePoints(hamster.Id))">
         <p>Name: @hamster.Name</p>
         <p>Age: @hamster.Age</p>
         <p>Favourite food: @hamster.FavFood</p>
@@ -33,6 +40,7 @@
     </div>
       
 }
+</div>
 
 
 @code {
@@ -41,22 +49,24 @@
     [Parameter]
     public int? Id { get; set; }
 
+    string headLine = string.Empty;
+
     protected override async Task OnInitializedAsync()
     {
         if (Id != null)
         {
+            headLine = "Next battle";
             await BattleService.GetFighters((int)Id);
             await BattleService.GetTwoHamsters();
 
         }
         else
         {
+            headLine = "Battle";
             await BattleService.GetTwoHamsters();
         }
 
     }
-
-
 
     async Task UpdatePoints(int id)
     {

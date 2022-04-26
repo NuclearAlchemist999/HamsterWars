@@ -59,25 +59,5 @@ namespace HamsterWars_Repositories.Repositories
                 throw new ArgumentException();
             }
         }
-
-        public async Task UpdateHamster(Hamster hamster, int id)
-        {
-            var dbHamster = await _context.Hamsters.FindAsync(id);
-
-            if (dbHamster == null)
-            {
-                throw new Exception("No hamster here!");
-            }
-
-            dbHamster.Name = hamster.Name;
-            dbHamster.Age = hamster.Age;
-            dbHamster.FavFood = hamster.FavFood;
-            dbHamster.FavThing = hamster.FavThing;
-            dbHamster.ImgName = hamster.ImgName;
-
-            await _context.SaveChangesAsync();
-            
-
-        }
     }
 }

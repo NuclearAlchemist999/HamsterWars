@@ -9,7 +9,6 @@ namespace HamsterWars_Repositories.IRepositories
         Task LoadHamsters();
         Task<Hamster> GetOneHamster(int id);
         Task AddHamster(Hamster hamster);
-        Task UpdateHamster(Hamster hamster, int id);
         Task DeleteHamster(int id);
     }
 }

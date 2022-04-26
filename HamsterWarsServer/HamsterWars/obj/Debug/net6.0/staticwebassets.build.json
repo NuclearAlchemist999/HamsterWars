@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/1uBPi5PMWE9a70MHBi8FRoTlAL852uz+fPoBW2p5nE=",
+  "Hash": "f08RXmljTTdmCRgLGKqNNEDk0Z6+Lgokv4zygXKTqDE=",
   "Source": "HamsterWars",
   "BasePath": "_content/HamsterWars",
   "Mode": "Default",
@@ -748,12 +748,12 @@
       "OriginalItemSpec": "wwwroot\\Content\\images\\hamsters\\hamster-9.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\Content\\savedImages\\e5353ff4-5586-476f-aa03-dab7f4da39d6.jpg",
+      "Identity": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\Content\\savedImages\\5cfb63bd-85f4-4558-8a54-bf2fd183acbe.jpg",
       "SourceId": "HamsterWars",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\",
       "BasePath": "_content/HamsterWars",
-      "RelativePath": "Content/savedImages/e5353ff4-5586-476f-aa03-dab7f4da39d6.jpg",
+      "RelativePath": "Content/savedImages/5cfb63bd-85f4-4558-8a54-bf2fd183acbe.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -762,15 +762,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\savedImages\\e5353ff4-5586-476f-aa03-dab7f4da39d6.jpg"
+      "OriginalItemSpec": "wwwroot\\Content\\savedImages\\5cfb63bd-85f4-4558-8a54-bf2fd183acbe.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\Content\\savedImages\\ecde1436-fd89-4a52-b913-ada6e3e8cf52.jpg",
+      "Identity": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\Content\\savedImages\\9f37b6d8-6d69-4aaa-ad0e-58f08c2cb3d1.jpg",
       "SourceId": "HamsterWars",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\",
       "BasePath": "_content/HamsterWars",
-      "RelativePath": "Content/savedImages/ecde1436-fd89-4a52-b913-ada6e3e8cf52.jpg",
+      "RelativePath": "Content/savedImages/9f37b6d8-6d69-4aaa-ad0e-58f08c2cb3d1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -779,7 +779,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\savedImages\\ecde1436-fd89-4a52-b913-ada6e3e8cf52.jpg"
+      "OriginalItemSpec": "wwwroot\\Content\\savedImages\\9f37b6d8-6d69-4aaa-ad0e-58f08c2cb3d1.jpg"
     },
     {
       "Identity": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\css\\bootstrap\\bootstrap.min.css",

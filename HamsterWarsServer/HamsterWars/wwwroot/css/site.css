@@ -68,3 +68,54 @@ a, .btn-link {
     width: 300px;
     height: 200px;
 }
+
+
+.hamster-container {
+    display: grid;
+    grid-template-columns: repeat(3, 370px);
+    margin: 4rem auto;
+    justify-content: center;
+    gap: 1rem;
+    margin: 4rem auto;
+}
+
+.hamster-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: -1px 5px 20px rgba(45, 45, 45, 0.2);
+    border-radius: 0px 0px 8px 8px;
+    transition: all 0.3s ease;
+    
+}
+
+.hamster-item img {
+    width: 370px;
+    height: 300px;
+    border-radius: 8px 8px 0px 0px;
+}
+   
+
+.hamster-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-top {
+    text-align: center;
+
+}
+
+.battle-container {
+    display: grid;
+    grid-template-columns: repeat(2, 370px);
+    margin: 4rem auto;
+    justify-content: center;
+    gap: 1rem;
+    margin: 4rem auto;
+}
+
+.headline {
+    text-align: center;
+}
+
+
