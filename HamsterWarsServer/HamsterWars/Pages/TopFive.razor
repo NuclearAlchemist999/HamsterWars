@@ -1,0 +1,19 @@
+﻿@page "/topfive"
+@inject IHamsterRepository _hamster
+
+@foreach (var hamster in _hamster.Percents)
+{
+    <div>
+        <p>@hamster.Name</p>
+        <p>@hamster.WinPercentRate</p>
+    </div>
+}
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        await _hamster.LoadTopFive();
+    }
+
+}

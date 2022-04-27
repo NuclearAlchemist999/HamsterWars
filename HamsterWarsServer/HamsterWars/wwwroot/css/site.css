@@ -64,12 +64,6 @@ a, .btn-link {
     }
 
 
-.hamster-img {
-    width: 300px;
-    height: 200px;
-}
-
-
 .hamster-container {
     display: grid;
     grid-template-columns: repeat(3, 370px);
