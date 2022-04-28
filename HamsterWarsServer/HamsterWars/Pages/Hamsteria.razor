@@ -45,7 +45,7 @@
 @code {
     [Parameter]
     public int? Id { get; set; }
-    
+
     private long maxFileSize = 1024 * 500;
     private IBrowserFile pendingFile;
     private string? fileName;
@@ -63,13 +63,10 @@
 
     bool CheckValidTypes()
     {
-        if (fileName != null)
-        {
-            string[] vaildTypes = { "png", "jpg", "jpeg" };
-            string fileExtension = fileName.Split('.').Last();
-            return vaildTypes.Contains(fileExtension.ToLower());
-        }
-        return false;
+        string[] vaildTypes = { "png", "jpg", "jpeg" };
+        string fileExtension = fileName.Split('.').Last();
+        return vaildTypes.Contains(fileExtension.ToLower());
+        
     }
 
     async Task SaveFile()
@@ -85,29 +82,33 @@
 
             string dbPath = $"/Content/savedImages/{storedFileName}";
             hamster.ImgName = dbPath;
-            
+
         }
         catch
         {
             throw new ArgumentException();
         }
-
-        
     }
 
     async Task HandleSubmit()
     { 
-        bool isValid = CheckValidTypes();
-
         if (fileName == null)
         {
             errorMessage = "Please select a file.";
             return;
         }
 
+        bool isValid = CheckValidTypes();
+   
         if (!isValid)
         {
             errorMessage = "The file type is not allowed.";
+            return;
+        }
+
+        if (pendingFile.Size > maxFileSize)
+        {
+            errorMessage = "The file is too large.";
             return;
         }
 
