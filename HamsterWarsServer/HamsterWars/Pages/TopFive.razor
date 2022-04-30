@@ -1,13 +1,16 @@
-﻿@page "/topfive"
+﻿@page "/statistics"
 @inject IHamsterRepository _hamster
 
+<div class="one-hamster-container">
 @foreach (var hamster in _hamster.Percents)
 {
-    <div>
+    <div class="hamster-item">
+        <img src="@hamster.ImgName" alt="@hamster.Name">
         <p>@hamster.Name</p>
-        <p>@hamster.WinPercentRate</p>
+        <p>Wins: @hamster.WinPercentRate%</p>
     </div>
 }
+</div>
 
 @code {
 

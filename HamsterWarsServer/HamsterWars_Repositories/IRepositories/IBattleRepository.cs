@@ -13,5 +13,6 @@ namespace HamsterWars_Repositories.IRepositories
         Task<int> AddGame();
         Task AddFighter(int hamsterId, int gameId, string winStat);
         Task GetFighters(int id);
+        Task BattleWinner(int id);
     }
 }

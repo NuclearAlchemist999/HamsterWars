@@ -68,7 +68,8 @@ namespace HamsterWars_Repositories.Repositories
                               select new PercentModel   
                               {
                                   WinPercentRate = Math.Round(((double)h.Wins / (double)h.Games) * 100, 2),
-                                  Name = h.Name
+                                  Name = h.Name,
+                                  ImgName = h.ImgName
                               })
                              .Take(5).ToListAsync();
 

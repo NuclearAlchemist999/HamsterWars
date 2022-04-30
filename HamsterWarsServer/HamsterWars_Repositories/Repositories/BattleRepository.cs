@@ -109,8 +109,30 @@ namespace HamsterWars_Repositories.Repositories
 
                               }).ToListAsync();
 
+        }
 
+        public async Task BattleWinner(int id)
+        {
+            
+            var r = (from hh in _context.Hamsters
+                     join hgg in _context.Hamsters_Games on hh.Id equals hgg.HamsterId
+                     join gg in _context.Games on hgg.GameId equals gg.Id
+                     where hgg.HamsterId == id && hgg.WinStatus == "Winner"
+                     select gg.Id);
 
+            Fighters = await (from g in _context.Games
+            join hg in _context.Hamsters_Games on g.Id equals hg.GameId
+            join h in _context.Hamsters on hg.HamsterId equals h.Id
+                              
+            where r.Contains(g.Id)
+            select new JoinModel
+            {
+                GameId = g.Id,
+                HamsterName = h.Name,
+                WinStatus = hg.WinStatus
+                                  
+
+            }).Distinct().ToListAsync();
 
         }
     }

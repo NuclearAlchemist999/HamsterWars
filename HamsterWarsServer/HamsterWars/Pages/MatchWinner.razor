@@ -1,0 +1,24 @@
+﻿@page "/matchwinner/{id:int}"
+@inject IBattleRepository _battle
+
+@foreach (var hamster in _battle.Fighters)
+{
+    <div>
+    <p>@hamster.GameId</p>
+    <p>@hamster.HamsterName</p>
+    <p>@hamster.WinStatus</p>
+    
+        <br>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await _battle.BattleWinner(Id);
+    }
+
+}

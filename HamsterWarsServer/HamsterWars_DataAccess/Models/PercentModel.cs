@@ -11,5 +11,6 @@ namespace HamsterWars_DataAccess.Models
         public string? Name { get; set; }
         public double WinPercentRate { get; set; }
         public double LossPercentRate { get; set; }
+        public string? ImgName { get; set; }
     }
 }
