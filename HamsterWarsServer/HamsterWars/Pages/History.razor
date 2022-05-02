@@ -2,17 +2,28 @@
 @inject IBattleRepository _battle
 @inject NavigationManager _nav
 
+<div class="battle-list">
+
 @foreach (var battle in _battle.Fighters)
 {
+    <div class="battle-item">
+    <h4 class="@(battle.WinStatus == "Winner" ? "winner" : "loser")">@battle.WinStatus</h4>
+    <p>@battle.HamsterName</p>  
+   
     <div>
-        <p>@battle.HamsterName</p>
-        <p>@battle.WinStatus</p>
-        <button type="button" class="btn btn-danger" @onclick="(() => RemoveGame(battle.GameId))">&times;</button>
+        @if (battle.WinStatus == "Winner")
+        {
+          <button type="button" class="btn btn-danger" @onclick="(() => RemoveGame(battle.GameId))">&times;</button>  
+        }
     </div>
+
+   </div>
 }
 
-@code {
+</div>
 
+@code {
+   
     protected override async Task OnInitializedAsync()
     {
         await _battle.BattleHistory();

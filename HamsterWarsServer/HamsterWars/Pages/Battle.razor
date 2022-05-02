@@ -31,23 +31,20 @@
 <div class="battle-container">
 @foreach (var hamster in _battle.Hamsters)
 {
-    
-    <div class="hamster-item">
+   <div class="hamster-item">
         <img src="@hamster.ImgName" alt="@hamster.Name" @onclick="(() => UpdatePoints(hamster.Id))">
         <p>Name: @hamster.Name</p>
         <p>Age: @hamster.Age</p>
         <p>Favourite food: @hamster.FavFood</p>
         <p>Favourite thing: @hamster.FavThing</p>
     </div>
-      
 }
 </div>
 
 
 @code {
 
-
-    [Parameter]
+   [Parameter]
     public int? Id { get; set; }
 
     string headLine = string.Empty;
@@ -86,9 +83,7 @@
 
         _nav.NavigateTo($"/battle/{gameId}", true);
         
-
     }
-
 
 }
 
