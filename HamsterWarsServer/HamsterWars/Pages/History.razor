@@ -1,0 +1,29 @@
+﻿@page "/history"
+@inject IBattleRepository _battle
+@inject NavigationManager _nav
+
+@foreach (var battle in _battle.Fighters)
+{
+    <div>
+        <p>@battle.HamsterName</p>
+        <p>@battle.WinStatus</p>
+        <button type="button" class="btn btn-danger" @onclick="(() => RemoveGame(battle.GameId))">&times;</button>
+    </div>
+}
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        await _battle.BattleHistory();
+    }
+
+    async Task RemoveGame(int id)
+    {
+        await _battle.DeleteGame(id);
+        await _battle.DeleteFighters(id);
+        _nav.NavigateTo("/history", true);
+
+    }
+
+}

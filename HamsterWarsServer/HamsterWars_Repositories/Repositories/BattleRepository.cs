@@ -135,5 +135,46 @@ namespace HamsterWars_Repositories.Repositories
             }).Distinct().ToListAsync();
 
         }
+
+        public async Task BattleHistory()
+        {
+            Fighters = await (from h in _context.Hamsters
+                        join hg in _context.Hamsters_Games on h.Id equals hg.HamsterId
+                        join g in _context.Games on hg.GameId equals g.Id
+                        select new JoinModel
+                        {
+                            GameId = hg.GameId,
+                            HamsterName = h.Name,
+                            WinStatus = hg.WinStatus
+
+
+                        }).ToListAsync();
+        }
+
+        public async Task DeleteGame(int id)
+        {
+            var dbGame = await _context.Games.FindAsync(id);
+
+            if (dbGame != null)
+            {
+                _context.Games.Remove(dbGame);
+                await _context.SaveChangesAsync();
+            }
+
+        }
+
+        public async Task DeleteFighters(int id)
+        {
+            var dbGame = await _context.Hamsters_Games.Where(g => g.GameId == id).ToListAsync();
+
+            if (dbGame != null)
+            {
+                foreach (var game in dbGame)
+                {
+                    _context.Hamsters_Games.Remove(game);
+                }
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }
