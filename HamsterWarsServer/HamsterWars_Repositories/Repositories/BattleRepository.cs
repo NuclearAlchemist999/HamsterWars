@@ -132,15 +132,17 @@ namespace HamsterWars_Repositories.Repositories
                 WinStatus = hg.WinStatus
                                   
 
-            }).Distinct().ToListAsync();
+            }).OrderBy(g => g.GameId).ToListAsync();
 
         }
 
         public async Task BattleHistory()
         {
             Fighters = await (from h in _context.Hamsters
+                              
                         join hg in _context.Hamsters_Games on h.Id equals hg.HamsterId
                         join g in _context.Games on hg.GameId equals g.Id
+                        
                         select new JoinModel
                         {
                             GameId = hg.GameId,
@@ -148,7 +150,7 @@ namespace HamsterWars_Repositories.Repositories
                             WinStatus = hg.WinStatus
 
 
-                        }).ToListAsync();
+                        }).OrderByDescending(g => g.GameId).ToListAsync();
         }
 
         public async Task DeleteGame(int id)

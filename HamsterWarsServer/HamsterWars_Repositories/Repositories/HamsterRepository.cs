@@ -16,7 +16,8 @@ namespace HamsterWars_Repositories.Repositories
         }
 
         public List<Hamster> Hamsters { get; set; } = new List<Hamster>();
-        public List<PercentModel> Percents { get; set; } = new List<PercentModel>();
+        public List<PercentModel> PercentWin { get; set; } = new List<PercentModel>();
+        public List<PercentModel> PercentLoss { get; set; } = new List<PercentModel>();
 
         public async Task AddHamster(Hamster hamster)
         {
@@ -63,19 +64,35 @@ namespace HamsterWars_Repositories.Repositories
 
         public async Task LoadTopFive()
         {
-            Percents = await (from h in _context.Hamsters
-                              .Where(g => g.Wins >= 5)
+            PercentWin = await (from h in _context.Hamsters
+                              .Where(w => w.Wins >= 3)
                               .OrderByDescending(h => ((double)h.Wins / (double)h.Games))
+                              .ThenByDescending(h => h.Wins)
                               select new PercentModel   
                               {
                                   WinPercentRate = Math.Round(((double)h.Wins / (double)h.Games) * 100, 2),
                                   Name = h.Name,
                                   ImgName = h.ImgName
-                              })
-                             .Take(5).ToListAsync();
+
+                              }).Take(5).ToListAsync();
 
         
         
+        }
+
+        public async Task LoadBottomFive()
+        {
+           PercentLoss = await (from h in _context.Hamsters
+                   .Where(l => l.Losses >= 3)
+                   .OrderByDescending(h => ((double)h.Losses / (double)h.Games))
+                   .ThenByDescending(h => h.Losses)
+                   select new PercentModel
+                   {
+                       LossPercentRate = Math.Round(((double)h.Losses / (double)h.Games) * 100, 2),
+                       Name = h.Name,
+                       ImgName = h.ImgName
+
+                   }).Take(5).ToListAsync();
         }
 
     }
