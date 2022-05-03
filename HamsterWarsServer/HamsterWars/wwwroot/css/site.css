@@ -141,10 +141,19 @@ a, .btn-link {
     margin: 4rem auto;    
 }
 
+.battle-list-one {
+    display: grid;
+    grid-template-columns: repeat(1, 300px);
+    margin: 4rem auto;
+    justify-content: center;
+    margin: 4rem auto;
+}
+
 .battle-item {
     padding: 1rem;
     border-bottom: 1px dashed rgb(215, 189, 150);
     background-color: rgb(55, 40, 85);
+    text-align: center;
 }
 
 .winner {

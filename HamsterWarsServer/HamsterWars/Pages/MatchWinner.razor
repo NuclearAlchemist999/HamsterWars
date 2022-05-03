@@ -1,24 +1,37 @@
 ﻿@page "/matchwinner/{id:int}"
 @inject IBattleRepository _battle
+@inject IHamsterRepository _hamster
 
-<div class="battle-list">
+@if (wins == 0)
+{
+    <h2>Poor @name, no wins at all. =(</h2>
+}
+<div class="battle-list-one">
 @foreach (var hamster in _battle.Fighters)
 {
-    <div class="battle-item">
-        <h4 class="@(hamster.WinStatus == "Winner" ? "winner" : "loser")">@hamster.WinStatus</h4>
-        <p>@hamster.HamsterName</p>
-    </div>
-    
- }
+    @if (hamster.WinStatus == "Loser")
+        {
+            <div class="battle-item">
+                <h4 class="loser">@hamster.WinStatus</h4>
+                <p>@hamster.HamsterName</p>
+            </div>
+        }
+
+    }
 </div>
 
 @code {
     [Parameter]
     public int Id { get; set; }
+    int wins;
+    string name = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
         await _battle.BattleWinner(Id);
+        var hamster = _hamster.Hamsters.FirstOrDefault(h => h.Id == Id);
+        wins = hamster.Wins;
+        name = hamster.Name;
     }
 
 }

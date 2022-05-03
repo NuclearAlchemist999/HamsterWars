@@ -64,6 +64,7 @@ namespace HamsterWars_Repositories.Repositories
         public async Task LoadTopFive()
         {
             Percents = await (from h in _context.Hamsters
+                              .Where(g => g.Wins >= 5)
                               .OrderByDescending(h => ((double)h.Wins / (double)h.Games))
                               select new PercentModel   
                               {

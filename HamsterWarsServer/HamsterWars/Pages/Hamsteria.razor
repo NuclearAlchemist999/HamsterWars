@@ -75,12 +75,12 @@
         {
             var storedFileName = string.Format(@"{0}.jpg", Guid.NewGuid());
 
-            var path = $"wwwroot/Content/savedImages/{storedFileName}";
+            var path = $"wwwroot/Content/images/savedImages/{storedFileName}";
 
             await using FileStream fs = new(path, FileMode.Create);
             await pendingFile.OpenReadStream(maxFileSize).CopyToAsync(fs);
 
-            string dbPath = $"/Content/savedImages/{storedFileName}";
+            string dbPath = $"/Content/images/savedImages/{storedFileName}";
             hamster.ImgName = dbPath;
 
         }

@@ -29,8 +29,26 @@
         hamster = await _hamster.GetOneHamster((int)Id);
     }
 
+    void RemoveImage()
+    {
+        var hamster =  _hamster.Hamsters.FirstOrDefault(h => h.Id == Id);
+
+        if (hamster != null)
+        {
+            string? dbPath = hamster.ImgName;
+            string path = $"wwwroot{dbPath}";
+            
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+        }
+        
+    }
+
     async Task DeleteHamster()
     {
+        RemoveImage();
         await _hamster.DeleteHamster(hamster.Id);
         _nav.NavigateTo("gallery");
     }
