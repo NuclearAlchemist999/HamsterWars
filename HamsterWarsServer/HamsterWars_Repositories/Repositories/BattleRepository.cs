@@ -44,7 +44,6 @@ namespace HamsterWars_Repositories.Repositories
             dbHamster.Wins++;
             dbHamster.Games++;
 
-
             await _context.SaveChangesAsync();
 
         }
@@ -61,19 +60,17 @@ namespace HamsterWars_Repositories.Repositories
             dbHamster.Losses++;
             dbHamster.Games++;
 
-
             await _context.SaveChangesAsync();
 
         }
 
         public async Task<int> AddGame()
         {
-            var game = new Game
-            {
+            var game = new Game{};
 
-            };
             _context.Games.Add(game);
             await _context.SaveChangesAsync();
+
             return game.Id;
 
         }
@@ -138,19 +135,26 @@ namespace HamsterWars_Repositories.Repositories
 
         public async Task BattleHistory()
         {
-            Fighters = await (from h in _context.Hamsters
-                              
-                        join hg in _context.Hamsters_Games on h.Id equals hg.HamsterId
-                        join g in _context.Games on hg.GameId equals g.Id
-                        
-                        select new JoinModel
-                        {
-                            GameId = g.Id,
-                            HamsterName = h.Name,
-                            WinStatus = hg.WinStatus
+            try
+            {
+                Fighters = await (from h in _context.Hamsters
+
+                                  join hg in _context.Hamsters_Games on h.Id equals hg.HamsterId
+                                  join g in _context.Games on hg.GameId equals g.Id
+
+                                  select new JoinModel
+                                  {
+                                      GameId = g.Id,
+                                      HamsterName = h.Name,
+                                      WinStatus = hg.WinStatus
 
 
-                        }).OrderByDescending(g => g.GameId).ToListAsync();
+                                  }).OrderByDescending(g => g.GameId).ToListAsync();
+            }
+            catch
+            {
+                throw new ArgumentException();
+            }
         }
 
         public async Task DeleteGame(int id)

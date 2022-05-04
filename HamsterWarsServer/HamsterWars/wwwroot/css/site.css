@@ -71,10 +71,9 @@ a, .btn-link {
 .hamster-container {
     display: grid;
     grid-template-columns: repeat(3, 370px);
-    margin: 4rem auto;
+    margin: 2.5rem auto;
     justify-content: center;
     gap: 2rem;
-    margin: 4rem auto;
 }
 
 .hamster-item {
@@ -88,12 +87,15 @@ a, .btn-link {
     border-radius: 8px;
 }
 
-    .hamster-item img {
-        width: 370px;
-        height: 300px;
-        border-radius: 8px 8px 0px 0px;
-    }
+.hamster-item img {
+    width: 370px;
+    height: 300px;
+    border-radius: 8px 8px 0px 0px;
+}
    
+.hamster-item button {
+    margin-bottom: 1.2rem;
+}
 
 .hamster-item:hover {
     transform: translateY(-5px);
@@ -106,19 +108,17 @@ a, .btn-link {
 .battle-container {
     display: grid;
     grid-template-columns: repeat(2, 370px);
-    margin: 4rem auto;
+    margin: 2.5rem auto;
     justify-content: center;
     gap: 2rem;
-    margin: 4rem auto;
 }
 
 .one-hamster-container {
     display: grid;
     grid-template-columns: repeat(1, 370px);
-    margin: 4rem auto;
+    margin: 2rem auto;
     justify-content: center;
-    gap: 1rem;
-    margin: 4rem auto;
+    gap: 1.7rem;
 }
 
 
@@ -135,10 +135,9 @@ a, .btn-link {
 
 .battle-list {
     display: grid;
-    grid-template-columns: repeat(2, 300px);
-    margin: 4rem auto;
-    justify-content: center;
-    margin: 4rem auto;    
+    grid-template-columns: repeat(2, 250px);
+    margin: 3rem auto;
+    justify-content: center;   
 }
 
 .battle-list-one {
@@ -146,7 +145,6 @@ a, .btn-link {
     grid-template-columns: repeat(1, 300px);
     margin: 4rem auto;
     justify-content: center;
-    margin: 4rem auto;
 }
 
 .battle-item {
@@ -156,6 +154,11 @@ a, .btn-link {
     text-align: center;
 }
 
+.battle-item button {
+    margin-left: 10rem;
+    margin-bottom: 0.1rem;
+}
+
 .winner {
     color: rgb(139, 214, 154);
 }
@@ -163,6 +166,20 @@ a, .btn-link {
 .loser {
     color: rgb(236, 99, 84);
 }
+
+.start-container {
+    display: grid;
+    grid-template-columns: repeat(1, 570px);
+    margin-top: 0.2rem;
+    justify-content: center;
+}
+
+.start-container img {
+    width: 470px;
+    height: 410px;
+}
+
+
 
 
 

@@ -2,6 +2,8 @@
 @inject IBattleRepository _battle
 @inject NavigationManager _nav
 
+<PageTitle>Battle history</PageTitle>
+
 <div class="battle-list">
 
 @foreach (var battle in _battle.Fighters)
@@ -10,12 +12,13 @@
     <h4 class="@(battle.WinStatus == "Winner" ? "winner" : "loser")">@battle.WinStatus</h4>
     <p>@battle.HamsterName</p>  
    
-    <div>
+        
         @if (battle.WinStatus == "Winner")
         {
-          <button type="button" class="btn btn-danger" @onclick="(() => RemoveGame(battle.GameId))">&times;</button>  
+          <button type="button" class="btn btn-danger" @onclick="(() => RemoveGame(battle.GameId))">x</button>  
         }
-    </div>
+        
+    
 
    </div>
 }

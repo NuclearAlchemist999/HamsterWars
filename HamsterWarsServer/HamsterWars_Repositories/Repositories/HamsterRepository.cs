@@ -50,45 +50,54 @@ namespace HamsterWars_Repositories.Repositories
 
         public async Task LoadTopFive()
         {
-            PercentWin = await (from h in _context.Hamsters
-                              .Where(w => w.Wins >= 3)
-                              .OrderByDescending(h => ((double)h.Wins / (double)h.Games))
-                              .ThenByDescending(h => h.Wins)
-                              select new PercentModel   
-                              {
-                                  WinPercentRate = Math.Round(((double)h.Wins / (double)h.Games) * 100, 2),
-                                  Name = h.Name,
-                                  ImgName = h.ImgName
+            try
+            {
+                PercentWin = await (from h in _context.Hamsters
+                                  .Where(w => w.Wins >= 3)
+                                  .OrderByDescending(h => ((double)h.Wins / (double)h.Games))
+                                  .ThenByDescending(h => h.Wins)
+                                    select new PercentModel
+                                    {
+                                        WinPercentRate = Math.Round(((double)h.Wins / (double)h.Games) * 100, 2),
+                                        Name = h.Name,
+                                        ImgName = h.ImgName
 
-                              }).Take(5).ToListAsync();
-
-        
-        
+                                    }).Take(5).ToListAsync();
+            }
+            catch
+            {
+                throw new ArgumentException();
+            }
         }
 
         public async Task LoadBottomFive()
         {
-           PercentLoss = await (from h in _context.Hamsters
-                   .Where(l => l.Losses >= 3)
-                   .OrderByDescending(h => ((double)h.Losses / (double)h.Games))
-                   .ThenByDescending(h => h.Losses)
-                   select new PercentModel
-                   {
-                       LossPercentRate = Math.Round(((double)h.Losses / (double)h.Games) * 100, 2),
-                       Name = h.Name,
-                       ImgName = h.ImgName
+            try
+            {
+                PercentLoss = await (from h in _context.Hamsters
+                        .Where(l => l.Losses >= 3)
+                        .OrderByDescending(h => ((double)h.Losses / (double)h.Games))
+                        .ThenByDescending(h => h.Losses)
+                                     select new PercentModel
+                                     {
+                                         LossPercentRate = Math.Round(((double)h.Losses / (double)h.Games) * 100, 2),
+                                         Name = h.Name,
+                                         ImgName = h.ImgName
 
-                   }).Take(5).ToListAsync();
+                                     }).Take(5).ToListAsync();
+            }
+            catch
+            {
+                throw new ArgumentException();
+            }
         }
 
         public async Task DeleteHamster(int id)
         {
             var join = await (from h in _context.Hamsters
-
                               join hg in _context.Hamsters_Games on h.Id equals hg.HamsterId
                               join g in _context.Games on hg.GameId equals g.Id
                               where h.Id == id
-
                               select new 
                               { 
                                   hamster = h,

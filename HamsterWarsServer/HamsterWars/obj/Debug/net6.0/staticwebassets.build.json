@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G98wi/ISaSMMEl7OJq3+zL4XDpZXggtLdbLTm5spJ8U=",
+  "Hash": "hme7V9M97wjj1URxnx3Up84fB/t856QV1EV2dL+tzkI=",
   "Source": "HamsterWars",
   "BasePath": "_content/HamsterWars",
   "Mode": "Default",
@@ -748,12 +748,12 @@
       "OriginalItemSpec": "wwwroot\\Content\\images\\hamsters\\hamster-9.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\Content\\images\\logos\\hamsterwarsbadass.png",
+      "Identity": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\Content\\images\\logos\\hamsterwarsbadass-transparent.png",
       "SourceId": "HamsterWars",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\",
       "BasePath": "_content/HamsterWars",
-      "RelativePath": "Content/images/logos/hamsterwarsbadass.png",
+      "RelativePath": "Content/images/logos/hamsterwarsbadass-transparent.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -762,24 +762,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\images\\logos\\hamsterwarsbadass.png"
-    },
-    {
-      "Identity": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\Content\\images\\logos\\hamsterwarsbadass-removebg-preview.png",
-      "SourceId": "HamsterWars",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\",
-      "BasePath": "_content/HamsterWars",
-      "RelativePath": "Content/images/logos/hamsterwarsbadass-removebg-preview.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\images\\logos\\hamsterwarsbadass-removebg-preview.png"
+      "OriginalItemSpec": "wwwroot\\Content\\images\\logos\\hamsterwarsbadass-transparent.png"
     },
     {
       "Identity": "C:\\Users\\Lobson\\Desktop\\GitProjekt\\HamsterWars\\HamsterWarsServer\\HamsterWars\\wwwroot\\Content\\images\\savedImages\\56cfe673-4889-4c65-a126-5f8a2c587a2d.jpg",

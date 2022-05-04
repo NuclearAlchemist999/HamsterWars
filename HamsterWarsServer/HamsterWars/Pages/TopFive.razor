@@ -1,8 +1,11 @@
 ﻿@page "/statistics"
 @inject IHamsterRepository _hamster
+
+<PageTitle>Statistics</PageTitle>
+
 <div class="battle-container">
 <div class="one-hamster-container">
-<h3>Top list</h3>
+<h2>Top list</h2>
 @foreach (var hamster in _hamster.PercentWin)
 {
     <div class="hamster-item">
@@ -14,7 +17,7 @@
 }
 </div>
 <div class="one-hamster-container">
-<h3>Bottom list</h3>
+<h2>Bottom list</h2>
 @foreach (var hamster in _hamster.PercentLoss)
 {
     <div class="hamster-item">

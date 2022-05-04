@@ -2,6 +2,8 @@
 @inject IBattleRepository _battle
 @inject IHamsterRepository _hamster
 
+<PageTitle>Matches won</PageTitle>
+
 @if (wins == 0)
 {
     <h2>Poor @name, no wins at all. =(</h2>
@@ -29,9 +31,10 @@
     protected override async Task OnInitializedAsync()
     {
         await _battle.BattleWinner(Id);
-        var hamster = _hamster.Hamsters.FirstOrDefault(h => h.Id == Id);
+        var hamster = _hamster.Hamsters.FirstOrDefault(h => h.Id == Id); 
         wins = hamster.Wins;
         name = hamster.Name;
+        
     }
 
 }
