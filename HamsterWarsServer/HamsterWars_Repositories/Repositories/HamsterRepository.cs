@@ -26,20 +26,6 @@ namespace HamsterWars_Repositories.Repositories
             
         }
 
-        public async Task DeleteHamster(int id)
-        {
-            var dbHamster = await _context.Hamsters.FindAsync(id);
-
-            if (dbHamster == null)
-            {
-                throw new Exception("No hamster here!");
-            }
-            _context.Hamsters.Remove(dbHamster);
-            await _context.SaveChangesAsync();
-            
-
-        }
-
         public async Task<Hamster> GetOneHamster(int id)
         {
             var hamster = await _context.Hamsters.FindAsync(id);
@@ -93,6 +79,42 @@ namespace HamsterWars_Repositories.Repositories
                        ImgName = h.ImgName
 
                    }).Take(5).ToListAsync();
+        }
+
+        public async Task DeleteHamster(int id)
+        {
+            var join = await (from h in _context.Hamsters
+
+                              join hg in _context.Hamsters_Games on h.Id equals hg.HamsterId
+                              join g in _context.Games on hg.GameId equals g.Id
+                              where h.Id == id
+
+                              select new 
+                              { 
+                                  hamster = h,
+                                  game = g
+
+                              }).ToListAsync();
+
+            if (join != null)
+            {
+                foreach (var item in join)
+                {
+                    _context.Remove(item.game);
+                    _context.Hamsters.Remove(item.hamster);
+                }
+                await _context.SaveChangesAsync();
+                
+            }
+            var dbHamster = _context.Hamsters.Find(id);
+
+            if (dbHamster != null)
+            {
+                _context.Hamsters.Remove(dbHamster);
+                await _context.SaveChangesAsync();
+            }
+                
+            
         }
 
     }

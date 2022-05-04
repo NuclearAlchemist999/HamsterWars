@@ -145,7 +145,7 @@ namespace HamsterWars_Repositories.Repositories
                         
                         select new JoinModel
                         {
-                            GameId = hg.GameId,
+                            GameId = g.Id,
                             HamsterName = h.Name,
                             WinStatus = hg.WinStatus
 
