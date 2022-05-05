@@ -168,19 +168,5 @@ namespace HamsterWars_Repositories.Repositories
             }
 
         }
-
-        public async Task DeleteFighters(int id)
-        {
-            var dbGame = await _context.Hamsters_Games.Where(g => g.GameId == id).ToListAsync();
-
-            if (dbGame != null)
-            {
-                foreach (var game in dbGame)
-                {
-                    _context.Hamsters_Games.Remove(game);
-                }
-                await _context.SaveChangesAsync();
-            }
-        }
     }
 }

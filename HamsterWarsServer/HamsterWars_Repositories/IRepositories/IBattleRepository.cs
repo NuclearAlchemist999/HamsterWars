@@ -16,6 +16,5 @@ namespace HamsterWars_Repositories.IRepositories
         Task BattleWinner(int id);
         Task BattleHistory();
         Task DeleteGame(int id);
-        Task DeleteFighters(int id);
     }
 }

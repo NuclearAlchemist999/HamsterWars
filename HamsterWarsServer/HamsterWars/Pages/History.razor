@@ -16,9 +16,7 @@
         @if (battle.WinStatus == "Winner")
         {
           <button type="button" class="btn btn-danger" @onclick="(() => RemoveGame(battle.GameId))">x</button>  
-        }
-        
-    
+        }   
 
    </div>
 }
@@ -31,13 +29,10 @@
     {
         await _battle.BattleHistory();
     }
-
+    
     async Task RemoveGame(int id)
     {
         await _battle.DeleteGame(id);
-        await _battle.DeleteFighters(id);
         _nav.NavigateTo("/history", true);
-
     }
-
 }

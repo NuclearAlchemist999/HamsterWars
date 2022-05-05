@@ -72,7 +72,7 @@
         var loser = _battle.Hamsters.FirstOrDefault(h => h.Id != id);
 
         if (loser != null)
-        {
+        {   
             winStat = "Loser";
             await _battle.UpdateLosses(loser.Id);
             await _battle.AddFighter(loser.Id, gameId, winStat);
