@@ -13,12 +13,11 @@ namespace HamsterWars_Repositories.Repositories
         {
             _context = context;
         }
-
         public List<Hamster> Hamsters { get; set; } = new List<Hamster>();
         public List<JoinModel> Fighters { get; set; } = new List<JoinModel>();
 
 
-
+        // Get two random hamsters.
         public async Task GetTwoHamsters()
         {
             try
@@ -88,6 +87,7 @@ namespace HamsterWars_Repositories.Repositories
             await _context.SaveChangesAsync();
         }
 
+        // Get the previous fighters and their number of games, wins and losses.
         public async Task GetFighters(int id)
         {
             Fighters = await (from h in _context.Hamsters
@@ -108,6 +108,7 @@ namespace HamsterWars_Repositories.Repositories
 
         }
 
+        // Get all the opponents that a hamster has defeated.
         public async Task BattleWinner(int id)
         {
             
@@ -133,6 +134,7 @@ namespace HamsterWars_Repositories.Repositories
 
         }
 
+        // Get all battle history.
         public async Task BattleHistory()
         {
             try

@@ -4,29 +4,28 @@
 <PageTitle>Statistics</PageTitle>
 
 <div class="battle-container">
-<div class="one-hamster-container">
-<h2>Top list</h2>
-@foreach (var hamster in _hamster.PercentWin)
-{
-    <div class="hamster-item">
-        <img src="@hamster.ImgName" alt="@hamster.Name">
-        <p>@hamster.Name</p>
-        <p>Wins: @hamster.WinPercentRate%</p>
+    <div class="one-hamster-container">
+        <h2>Top list</h2>
+        @foreach (var hamster in _hamster.PercentWin)
+        {
+            <div class="hamster-item">
+                <img src="@hamster.ImgName" alt="@hamster.Name">
+                <p>@hamster.Name</p>
+                <p>Wins: @hamster.WinPercentRate%</p>
+            </div>
+        }
     </div>
-    
-}
-</div>
-<div class="one-hamster-container">
-<h2>Bottom list</h2>
-@foreach (var hamster in _hamster.PercentLoss)
-{
-    <div class="hamster-item">
-        <img src="@hamster.ImgName" alt="@hamster.Name">
-        <p>@hamster.Name</p>
-        <p>Losses: @hamster.LossPercentRate%</p>
+    <div class="one-hamster-container">
+        <h2>Bottom list</h2>
+        @foreach (var hamster in _hamster.PercentLoss)
+        {
+            <div class="hamster-item">
+                <img src="@hamster.ImgName" alt="@hamster.Name">
+                <p>@hamster.Name</p>
+                <p>Losses: @hamster.LossPercentRate%</p>
+            </div>
+        }
     </div>
-}
-</div>
 </div>
 
 @code {

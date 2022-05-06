@@ -14,7 +14,6 @@ namespace HamsterWars_DataAccess.Data
         {
 
         }
-
         public DbSet<Hamster> Hamsters { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<HamsterGame> Hamsters_Games { get; set; }

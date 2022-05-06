@@ -8,39 +8,37 @@
 @if (Id != null)
 {
     <div class="gallery-top">
-    <h2>Result:</h2>
+        <h2>Result:</h2>
     </div>
     <div class="battle-container">
-    @foreach (var hamster in _battle.Fighters)
-    {
-        <div class="hamster-item">
-            <img src="@hamster.ImgName" alt="@hamster.HamsterName" class="hamster-img">
-            <h3>@hamster.WinStatus</h3>
-            <p>@hamster.HamsterName</p>
-            <p>Games: @hamster.Games</p>
-            <p>Wins: @hamster.Wins</p>
-            <p>Losses: @hamster.Losses</p>
-        </div>
-    }
+        @foreach (var hamster in _battle.Fighters)
+        {
+            <div class="hamster-item">
+                <img src="@hamster.ImgName" alt="@hamster.HamsterName" class="hamster-img">
+                <h3>@hamster.WinStatus</h3>
+                <p>@hamster.HamsterName</p>
+                <p>Games: @hamster.Games</p>
+                <p>Wins: @hamster.Wins</p>
+                <p>Losses: @hamster.Losses</p>
+            </div>
+        }
     </div>
 }
-
 <div class="gallery-top">
-<h2>@headLine</h2>
+    <h2>@headLine</h2>
 </div>
 <div class="battle-container">
-@foreach (var hamster in _battle.Hamsters)
-{
-   <div class="hamster-item">
-        <img src="@hamster.ImgName" alt="@hamster.Name" @onclick="(() => UpdatePoints(hamster.Id))">
-        <p>Name: @hamster.Name</p>
-        <p>Age: @hamster.Age</p>
-        <p>Favourite food: @hamster.FavFood</p>
-        <p>Favourite thing: @hamster.FavThing</p>
-    </div>
-}
+    @foreach (var hamster in _battle.Hamsters)
+    {
+       <div class="hamster-item">
+            <img src="@hamster.ImgName" alt="@hamster.Name" @onclick="(() => UpdatePoints(hamster.Id))">
+            <p>Name: @hamster.Name</p>
+            <p>Age: @hamster.Age</p>
+            <p>Favourite food: @hamster.FavFood</p>
+            <p>Favourite thing: @hamster.FavThing</p>
+        </div>
+    }
 </div>
-
 
 @code {
 

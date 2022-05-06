@@ -6,21 +6,17 @@
 
 <div class="battle-list">
 
-@foreach (var battle in _battle.Fighters)
-{
-    <div class="battle-item">
-    <h4 class="@(battle.WinStatus == "Winner" ? "winner" : "loser")">@battle.WinStatus</h4>
-    <p>@battle.HamsterName</p>  
-   
-        
-        @if (battle.WinStatus == "Winner")
-        {
-          <button type="button" class="btn btn-danger" @onclick="(() => RemoveGame(battle.GameId))">x</button>  
-        }   
-
-   </div>
-}
-
+    @foreach (var battle in _battle.Fighters)
+    {
+        <div class="battle-item">
+            <h4 class="@(battle.WinStatus == "Winner" ? "winner" : "loser")">@battle.WinStatus</h4>
+            <p>@battle.HamsterName</p>    
+                @if (battle.WinStatus == "Winner")
+                {
+                  <button type="button" class="btn btn-danger" @onclick="(() => RemoveGame(battle.GameId))">x</button>  
+                }   
+       </div>
+    }
 </div>
 
 @code {

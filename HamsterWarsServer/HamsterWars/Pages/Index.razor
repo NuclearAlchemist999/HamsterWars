@@ -4,22 +4,20 @@
 <PageTitle>Home</PageTitle>
 
 <div class="start-container">
-<img src="/Content/images/logos/hamsterwarsbadass-transparent.png" alt="war">
+    <img src="/Content/images/logos/hamsterwarsbadass-transparent.png" alt="war">
 
-<h2>Welcome to Hamster Wars</h2>
+    <h2>Welcome to Hamster Wars</h2>
 
-<p>Click on the hamster that you find cutest and scroll down to see the next battle. In the gallery you can see all hamsters. Click
-on a hamster picture to find more information about each hamster. You can also add your own hamster in the 
-gallery.
-</p>
+    <p>Click on the hamster that you find cutest and scroll down to see the next battle. In the gallery you can see all hamsters. Click
+    on a hamster image to find more information about each hamster. You can also add your own hamster in the 
+    gallery.
+    </p>
 
-<div class="link-style"> 
-    <a href="" @onclick="GoToBattle" @onclick:preventDefault>Go to battle</a>
-    <a href="" @onclick="GoToGallery" @onclick:preventDefault>Go to gallery</a>
+    <div class="link-style"> 
+        <a href="" @onclick="GoToBattle" @onclick:preventDefault>Go to battle</a>
+        <a href="" @onclick="GoToGallery" @onclick:preventDefault>Go to gallery</a>
+    </div>
 </div>
-</div>
-
-
 
 @code {
     void GoToBattle()

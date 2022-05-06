@@ -14,7 +14,6 @@ namespace HamsterWars_Repositories.Repositories
             _context = context;
             
         }
-
         public List<Hamster> Hamsters { get; set; } = new List<Hamster>();
         public List<PercentModel> PercentWin { get; set; } = new List<PercentModel>();
         public List<PercentModel> PercentLoss { get; set; } = new List<PercentModel>();
@@ -36,6 +35,7 @@ namespace HamsterWars_Repositories.Repositories
             return hamster;
         }
 
+        // Get all hamsters.
         public async Task LoadHamsters()
         {
             try
@@ -117,13 +117,15 @@ namespace HamsterWars_Repositories.Repositories
             }
             var dbHamster = _context.Hamsters.Find(id);
 
+            // If a hamster has not participated in any battle or if all matches have been removed
+            // with this hamster, this code will be running.
+
             if (dbHamster != null)
             {
                 _context.Hamsters.Remove(dbHamster);
                 await _context.SaveChangesAsync();
             }
                 
-            
         }
 
     }
