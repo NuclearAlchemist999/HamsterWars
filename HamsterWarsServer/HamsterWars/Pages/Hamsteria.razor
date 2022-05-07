@@ -1,10 +1,17 @@
 ﻿@page "/hamster"
-@inject IHamsterRepository _hamster
-@inject NavigationManager _nav
+@page "/hamster/{id:int}"
+@inject IHamsterRepository HamsterService
+@inject NavigationManager NavigationManager
 
-<PageTitle>Add hamster</PageTitle>
 
-<h3>Add a new hamster</h3>
+@if (Id == null)
+{
+    <h3>Add a new hamster</h3>
+}
+else
+{
+    <h3>Edit "@hamster.Name"</h3>
+}
 
 <EditForm Model="@hamster" OnValidSubmit="@HandleSubmit">
     <DataAnnotationsValidator />
@@ -28,7 +35,6 @@
         <InputText id="fav-thing" @bind-Value="hamster.FavThing" class="form-control"></InputText>
         <ValidationMessage For="@(()=> hamster.FavThing)" />
     </div>
-    <br />
     <div>
         <label for="image">Image</label>
           <InputFile OnChange="@LoadFile" @bind-Value="hamster.ImgName" accept=".png,.jpg,.jpeg"></InputFile> 
@@ -36,22 +42,44 @@
     
     <br />
     <p style="color: firebrick; font-size: 1.3rem;">@errorMessage</p>
-    <button type="submit" class="btn btn-primary">Save hamster</button>
-    
+    <button type="submit" class="btn btn-primary">@btnText</button>
+    @if (Id != null)
+    {
+        <button type="button" class="btn btn-danger" @onclick="DeleteHamster">Delete hamster</button>
+    }
 </EditForm>
+
+
 
 @code {
     [Parameter]
     public int? Id { get; set; }
-
+    
     private long maxFileSize = 1024 * 500;
     private IBrowserFile pendingFile;
     private string? fileName;
     private string errorMessage = string.Empty;
 
+
+    string btnText = string.Empty;
+
     Hamster hamster = new Hamster();
 
     string ImageURL = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        btnText = Id == null ? "Save hamster" : "Edit hamster";
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id != null)
+        {
+            hamster = await HamsterService.GetOneHamster((int)Id);
+        }
+    }
+
 
     void LoadFile(InputFileChangeEventArgs e)
     {
@@ -59,12 +87,17 @@
         fileName = e.File.Name;
     }
 
+
+
     bool CheckValidTypes()
     {
-        string[] vaildTypes = { "png", "jpg", "jpeg" };
-        string fileExtension = fileName.Split('.').Last();
-        return vaildTypes.Contains(fileExtension.ToLower());
-        
+        if (fileName != null)
+        {
+            string[] vaildTypes = { "png", "jpg", "jpeg" };
+            string fileExtension = fileName.Split('.').Last();
+            return vaildTypes.Contains(fileExtension.ToLower());
+        }
+        return false;
     }
 
     async Task SaveFile()
@@ -73,48 +106,59 @@
         {
             var storedFileName = string.Format(@"{0}.jpg", Guid.NewGuid());
 
-            var path = $"wwwroot/Content/images/savedImages/{storedFileName}";
+            var path = $"wwwroot/Content/savedImages/{storedFileName}";
 
             await using FileStream fs = new(path, FileMode.Create);
             await pendingFile.OpenReadStream(maxFileSize).CopyToAsync(fs);
 
-            string dbPath = $"/Content/images/savedImages/{storedFileName}";
+            string dbPath = $"/Content/savedImages/{storedFileName}";
             hamster.ImgName = dbPath;
-
+            
         }
         catch
         {
             throw new ArgumentException();
         }
+
+        
     }
 
     async Task HandleSubmit()
-    { 
-        if (fileName == null)
+    {
+        if (Id == null)
         {
-            errorMessage = "Please select a file.";
-            return;
-        }
+            bool isValid = CheckValidTypes();
 
-        bool isValid = CheckValidTypes();
-   
-        if (!isValid)
-        {
-            errorMessage = "The file type is not allowed.";
-            return;
-        }
+            if (fileName == null)
+            {
+                errorMessage = "Please select a file.";
+                return;
+            }
 
-        if (pendingFile.Size > maxFileSize)
-        {
-            errorMessage = "The file is too large.";
-            return;
-        }
+            if (!isValid)
+            {
+                errorMessage = "The file type is not allowed.";
+                return;
+            }
 
-        await SaveFile();
+            await SaveFile();
             
-        await _hamster.AddHamster(hamster);
+            await HamsterService.AddHamster(hamster);
             
-        _nav.NavigateTo("gallery");
+        }
+        else
+        {
+            await SaveFile();
+            await HamsterService.UpdateHamster(hamster, (int)Id);
+        }
+
+        NavigationManager.NavigateTo("gallery");
+    }
+
+    async Task DeleteHamster()
+    {
+        await HamsterService.DeleteHamster(hamster.Id);
+        NavigationManager.NavigateTo("gallery");
     }
 
 }

@@ -1,56 +1,27 @@
 ﻿@page "/hamsterinfo/{id:int}"
-@inject IHamsterRepository _hamster
-@inject NavigationManager _nav
+@inject IHamsterRepository HamsterService
 
-<PageTitle>Hamster information</PageTitle>
 
-    <div class="one-hamster-container">
-        <div class="hamster-item">
-            <img src="@hamster.ImgName" alt="@hamster.Name">
-            <p>Name: @hamster.Name</p>
-            <p>Age: @hamster.Age</p>
-            <p>Favourite food: @hamster.FavFood</p>
-            <p>Favourite thing: @hamster.FavThing</p>
-        </div>
+
+    <div>
+        <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img">
+        <p>Name: @hamster.Name</p>
+        <p>Age: @hamster.Age</p>
+        <p>Favourite food: @hamster.FavFood</p>
+        <p>Favourite thing: @hamster.FavThing</p>
     </div>
-    <div class="gallery-top">
-         <button type="button" class="btn btn-danger" @onclick="DeleteHamster">Delete hamster</button>
-    </div>
-   
-  
+
+
+
+
 @code {
     Hamster hamster = new Hamster();
-
     [Parameter]
     public int Id { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        hamster = await _hamster.GetOneHamster((int)Id);
-    }
-
-    void RemoveImage()
-    {
-        var hamster =  _hamster.Hamsters.FirstOrDefault(h => h.Id == Id);
-
-        if (hamster != null)
-        {
-            string? dbPath = hamster.ImgName;
-            string path = $"wwwroot{dbPath}";
-            
-            if (System.IO.File.Exists(path))
-            {
-                System.IO.File.Delete(path);
-            }
-        }
-        
-    }
-
-    async Task DeleteHamster()
-    {
-        RemoveImage();
-        await _hamster.DeleteHamster(hamster.Id);
-        _nav.NavigateTo("gallery");
+        hamster = await HamsterService.GetOneHamster(Id);
     }
 
 
