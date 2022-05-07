@@ -4,7 +4,7 @@ using HamsterWars_Repositories.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace HamsterWars_Repositories.Repositories 
+namespace HamsterWars_Repositories.Repositories
 {
     public class HamsterRepository : IHamsterRepository
     {
@@ -12,7 +12,7 @@ namespace HamsterWars_Repositories.Repositories
         public HamsterRepository(DataContext context)
         {
             _context = context;
-            
+
         }
         public List<Hamster> Hamsters { get; set; } = new List<Hamster>();
         public List<PercentModel> PercentWin { get; set; } = new List<PercentModel>();
@@ -22,7 +22,7 @@ namespace HamsterWars_Repositories.Repositories
         {
             _context.Add(hamster);
             await _context.SaveChangesAsync();
-            
+
         }
 
         public async Task<Hamster> GetOneHamster(int id)
@@ -98,8 +98,8 @@ namespace HamsterWars_Repositories.Repositories
                               join hg in _context.Hamsters_Games on h.Id equals hg.HamsterId
                               join g in _context.Games on hg.GameId equals g.Id
                               where h.Id == id
-                              select new 
-                              { 
+                              select new
+                              {
                                   hamster = h,
                                   game = g
 
@@ -113,7 +113,7 @@ namespace HamsterWars_Repositories.Repositories
                     _context.Hamsters.Remove(item.hamster);
                 }
                 await _context.SaveChangesAsync();
-                
+
             }
             var dbHamster = _context.Hamsters.Find(id);
 
@@ -125,7 +125,7 @@ namespace HamsterWars_Repositories.Repositories
                 _context.Hamsters.Remove(dbHamster);
                 await _context.SaveChangesAsync();
             }
-                
+
         }
 
     }

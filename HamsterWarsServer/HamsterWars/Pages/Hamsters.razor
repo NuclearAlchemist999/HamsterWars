@@ -1,44 +1,44 @@
 ﻿@page "/gallery"
-@inject IHamsterRepository HamsterService
-@inject NavigationManager NavigationManager
+@inject IHamsterRepository _hamster
+@inject NavigationManager _nav
 
+<PageTitle>Gallery</PageTitle>
 
-<h3>Hamsters</h3>
-<button class="btn btn-primary" @onclick="AddNewHamster">Add hamster</button>
-<br /> <br /> 
-
-@foreach (var hamster in HamsterService.Hamsters)
-{
-    <div>
-    <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img" @onclick="(() => HamsterFacts(hamster.Id))">
-    <p>@hamster.Name</p>
-    <button class="btn btn-primary" @onclick="(() => ShowHamster(hamster.Id))">
-                    <i class="oi oi-pencil"></i>
-    </button>
-    </div>
-}
-
+<div class="gallery-top">
+    <h2>Hamsters</h2>
+    <button class="btn btn-primary" @onclick="AddNewHamster">Add hamster</button>
+</div>
+<div class="hamster-container">
+    @foreach (var hamster in _hamster.Hamsters)
+    {
+        <div class="hamster-item">
+            <img src="@hamster.ImgName" alt="@hamster.Name" @onclick="(() => HamsterFacts(hamster.Id))">
+            <p>@hamster.Name</p>
+            <button type="button" class="btn btn-primary" @onclick="(() => MatchWins(hamster.Id))">View won matches</button>
+        </div>
+    }
+</div>
 
 
 @code {
     protected override async Task OnInitializedAsync()
     {
-        await HamsterService.LoadHamsters();
-    }
-
-    void ShowHamster(int id)
-    {
-        NavigationManager.NavigateTo($"hamster/{id}");
+        await _hamster.LoadHamsters();
     }
 
     void AddNewHamster()
     {
-        NavigationManager.NavigateTo("hamster");
+        _nav.NavigateTo("hamster");
     }
 
     void HamsterFacts(int id)
     {
-        NavigationManager.NavigateTo($"hamsterinfo/{id}");
+        _nav.NavigateTo($"hamsterinfo/{id}");
+    }
+
+    void MatchWins(int id)
+    {
+        _nav.NavigateTo($"matchwinner/{id}");
     }
 
 }

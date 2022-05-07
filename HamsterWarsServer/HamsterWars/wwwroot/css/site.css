@@ -6,7 +6,7 @@ html, body {
     font-family: 'Exo 2', sans-serif;
     background-color: rgb(8, 11, 45);
     color: rgb(145, 172, 252);
-}    
+}
 
 h1:focus {
     outline: none;
@@ -87,19 +87,19 @@ a, .btn-link {
     border-radius: 8px;
 }
 
-.hamster-item img {
-    width: 370px;
-    height: 300px;
-    border-radius: 8px 8px 0px 0px;
-}
-   
-.hamster-item button {
-    margin-bottom: 1.2rem;
-}
+    .hamster-item img {
+        width: 370px;
+        height: 300px;
+        border-radius: 8px 8px 0px 0px;
+    }
 
-.hamster-item:hover {
-    transform: translateY(-5px);
-}
+    .hamster-item button {
+        margin-bottom: 1.2rem;
+    }
+
+    .hamster-item:hover {
+        transform: translateY(-5px);
+    }
 
 .gallery-top {
     text-align: center;
@@ -129,16 +129,16 @@ a, .btn-link {
     color: rgb(195, 161, 234)
 }
 
-.link-style a:hover {
-    color: rgb(150, 102, 206)
-}
+    .link-style a:hover {
+        color: rgb(150, 102, 206)
+    }
 
 .battle-list {
     display: grid;
     grid-template-columns: repeat(2, 250px);
     grid-auto-rows: 110px;
     margin: 3rem auto;
-    justify-content: center;   
+    justify-content: center;
 }
 
 .battle-list-one {
@@ -153,14 +153,13 @@ a, .btn-link {
     border-bottom: 1px dashed rgb(215, 189, 150);
     background-color: rgb(55, 40, 85);
     text-align: center;
-    
 }
 
-.battle-item button {
-    position: relative;
-    left: 5.9rem;
-    bottom: 4.3rem;
-}
+    .battle-item button {
+        position: relative;
+        left: 5.9rem;
+        bottom: 4.3rem;
+    }
 
 .winner {
     color: rgb(139, 214, 154);
@@ -177,18 +176,7 @@ a, .btn-link {
     justify-content: center;
 }
 
-.start-container img {
-    width: 470px;
-    height: 410px;
-}
-
-
-
-
-
-
-
-
-
-
-
+    .start-container img {
+        width: 470px;
+        height: 410px;
+    }

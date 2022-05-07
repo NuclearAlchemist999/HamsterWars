@@ -4,7 +4,7 @@ using HamsterWars_Repositories.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace HamsterWars_Repositories.Repositories 
+namespace HamsterWars_Repositories.Repositories
 {
     public class BattleRepository : IBattleRepository
     {
@@ -65,7 +65,7 @@ namespace HamsterWars_Repositories.Repositories
 
         public async Task<int> AddGame()
         {
-            var game = new Game{};
+            var game = new Game { };
 
             _context.Games.Add(game);
             await _context.SaveChangesAsync();
@@ -111,7 +111,7 @@ namespace HamsterWars_Repositories.Repositories
         // Get all the opponents that a hamster has defeated.
         public async Task BattleWinner(int id)
         {
-            
+
             var r = (from hh in _context.Hamsters
                      join hgg in _context.Hamsters_Games on hh.Id equals hgg.HamsterId
                      join gg in _context.Games on hgg.GameId equals gg.Id
@@ -119,18 +119,18 @@ namespace HamsterWars_Repositories.Repositories
                      select gg.Id);
 
             Fighters = await (from g in _context.Games
-            join hg in _context.Hamsters_Games on g.Id equals hg.GameId
-            join h in _context.Hamsters on hg.HamsterId equals h.Id
-                              
-            where r.Contains(g.Id)
-            select new JoinModel
-            {
-                GameId = g.Id,
-                HamsterName = h.Name,
-                WinStatus = hg.WinStatus
-                                  
+                              join hg in _context.Hamsters_Games on g.Id equals hg.GameId
+                              join h in _context.Hamsters on hg.HamsterId equals h.Id
 
-            }).OrderBy(g => g.GameId).ToListAsync();
+                              where r.Contains(g.Id)
+                              select new JoinModel
+                              {
+                                  GameId = g.Id,
+                                  HamsterName = h.Name,
+                                  WinStatus = hg.WinStatus
+
+
+                              }).OrderBy(g => g.GameId).ToListAsync();
 
         }
 

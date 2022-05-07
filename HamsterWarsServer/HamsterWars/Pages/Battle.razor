@@ -1,84 +1,87 @@
 ﻿@page "/battle"
 @page "/battle/{id:int}"
-@inject IBattleRepository BattleService
-@inject NavigationManager NavigationManager
+@inject IBattleRepository _battle
+@inject NavigationManager _nav
 
+<PageTitle>Battle</PageTitle>
 
 @if (Id != null)
 {
-    <h2>Result:</h2>
-    @foreach (var hamster in BattleService.Fighters)
+    <div class="gallery-top">
+        <h2>Result:</h2>
+    </div>
+    <div class="battle-container">
+        @foreach (var hamster in _battle.Fighters)
+        {
+            <div class="hamster-item">
+                <img src="@hamster.ImgName" alt="@hamster.HamsterName" class="hamster-img">
+                <h3>@hamster.WinStatus</h3>
+                <p>@hamster.HamsterName</p>
+                <p>Games: @hamster.Games</p>
+                <p>Wins: @hamster.Wins</p>
+                <p>Losses: @hamster.Losses</p>
+            </div>
+        }
+    </div>
+}
+<div class="gallery-top">
+    <h2>@headLine</h2>
+</div>
+<div class="battle-container">
+    @foreach (var hamster in _battle.Hamsters)
     {
-        <div>
-            <h3>@hamster.WinStatus</h3>
-            <img src="@hamster.ImgName" alt="@hamster.HamsterName" class="hamster-img">
-            <p>@hamster.HamsterName</p>
-            <p>Games: @hamster.Games</p>
-            <p>Wins: @hamster.Wins</p>
-            <p>Losses: @hamster.Losses</p>
+       <div class="hamster-item">
+            <img src="@hamster.ImgName" alt="@hamster.Name" @onclick="(() => UpdatePoints(hamster.Id))">
+            <p>Name: @hamster.Name</p>
+            <p>Age: @hamster.Age</p>
+            <p>Favourite food: @hamster.FavFood</p>
+            <p>Favourite thing: @hamster.FavThing</p>
         </div>
     }
-}
-
-<h3>Battle</h3>
-@foreach (var hamster in BattleService.Hamsters)
-{
-    
-    <div>
-        <img src="@hamster.ImgName" alt="@hamster.Name" class="hamster-img" @onclick="(() => UpdatePoints(hamster.Id))">
-        <p>Name: @hamster.Name</p>
-        <p>Age: @hamster.Age</p>
-        <p>Favourite food: @hamster.FavFood</p>
-        <p>Favourite thing: @hamster.FavThing</p>
-    </div>
-      
-}
-
+</div>
 
 @code {
 
-
-    [Parameter]
+   [Parameter]
     public int? Id { get; set; }
+
+    string headLine = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
         if (Id != null)
         {
-            await BattleService.GetFighters((int)Id);
-            await BattleService.GetTwoHamsters();
-
+            headLine = "Next battle";
+            await _battle.GetFighters((int)Id);
+            await _battle.GetTwoHamsters();
         }
         else
         {
-            await BattleService.GetTwoHamsters();
+            headLine = "Battle";
+            await _battle.GetTwoHamsters();
         }
 
     }
-
-
 
     async Task UpdatePoints(int id)
     {
         string winStat = "";
-        int gameId = await BattleService.AddGame();
-        var loser = BattleService.Hamsters.FirstOrDefault(h => h.Id != id);
+        int gameId = await _battle.AddGame();
+        var loser = _battle.Hamsters.FirstOrDefault(h => h.Id != id);
 
         if (loser != null)
-        {
+        {   
             winStat = "Loser";
-            await BattleService.UpdateLosses(loser.Id);
-            await BattleService.AddFighter(loser.Id, gameId, winStat);
+            await _battle.UpdateLosses(loser.Id);
+            await _battle.AddFighter(loser.Id, gameId, winStat);
         }
         winStat = "Winner";
-        await BattleService.UpdateWins(id);
-        await BattleService.AddFighter(id, gameId, winStat);
+        await _battle.UpdateWins(id);
+        await _battle.AddFighter(id, gameId, winStat);
 
-        NavigationManager.NavigateTo($"/battle/{gameId}", true);
+        _nav.NavigateTo($"/battle/{gameId}", true);
         
-
     }
-
 
 }
 

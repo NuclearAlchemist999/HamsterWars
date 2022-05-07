@@ -9,6 +9,6 @@ namespace HamsterWars_DataAccess.Models
     public class Game
     {
         public int Id { get; set; }
-       
+
     }
 }

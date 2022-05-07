@@ -1,9 +1,9 @@
 ﻿using HamsterWars_DataAccess.Models;
 
 
-namespace HamsterWars_Repositories.IRepositories 
+namespace HamsterWars_Repositories.IRepositories
 {
-    public interface IHamsterRepository 
+    public interface IHamsterRepository
     {
         List<Hamster> Hamsters { get; set; }
         List<PercentModel> PercentWin { get; set; }

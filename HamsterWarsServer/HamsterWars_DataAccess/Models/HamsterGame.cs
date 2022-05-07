@@ -16,3 +16,4 @@ namespace HamsterWars_DataAccess.Models
         public string WinStatus { get; set; } = string.Empty;
     }
 }
+

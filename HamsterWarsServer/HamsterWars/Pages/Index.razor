@@ -1,28 +1,33 @@
 ﻿@page "/"
-@inject NavigationManager NavigationManager
+@inject NavigationManager _nav
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Home</PageTitle>
 
-<h2>Welcome to Hamster Wars</h2>
+<div class="start-container">
+    <img src="/Content/images/logos/hamsterwarsbadass-transparent.png" alt="war">
 
-<p>Click on the hamster that you find cutest. In the gallery you can see all hamsters. Click
-on a hamster picture to find more information about each hamster. You can also add your own hamster in the 
-gallery.
-</p>
+    <h2>Welcome to Hamster Wars</h2>
 
-<a href="" @onclick="GoToBattle" @onclick:preventDefault>Go to battle</a>
-<a href="" @onclick="GoToGallery" @onclick:preventDefault>Go to gallery</a>
+    <p>Click on the hamster that you find cutest and scroll down to see the next battle. In the gallery you can see all hamsters. Click
+    on a hamster image to find more information about each hamster. You can also add your own hamster in the 
+    gallery.
+    </p>
 
+    <div class="link-style"> 
+        <a href="" @onclick="GoToBattle" @onclick:preventDefault>Go to battle</a>
+        <a href="" @onclick="GoToGallery" @onclick:preventDefault>Go to gallery</a>
+    </div>
+</div>
 
 @code {
     void GoToBattle()
     {
-        NavigationManager.NavigateTo("battle");
+        _nav.NavigateTo("battle");
     }
 
     void GoToGallery()
     {
-        NavigationManager.NavigateTo("gallery");
+        _nav.NavigateTo("gallery");
     }
 }
 
